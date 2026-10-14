@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TreeKart | Healthy Trees & Plants, Delivered with Care</title>
+<meta name="description" content="TreeKart offers healthy fruit trees, flowering trees, indoor & outdoor plants, medicinal and decorative plants at affordable prices. Quality plants, expert care.">
+<meta property="og:title" content="TreeKart">
+<meta property="og:description" content="Healthy trees, flowering plants, fruit trees, and ornamental plants at affordable prices.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="TreeKart-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          forest:  { 50:'#f2f8f4', 100:'#dcefe1', 200:'#b9dfc6', 300:'#8ec9a3', 400:'#5fab7c', 500:'#3d8c5f', 600:'#2d6a4f', 700:'#245a42', 800:'#1b4332', 900:'#123024', 950:'#0a1c15' },
+          leaf:    { 400:'#74c69d', 500:'#52b788', 600:'#40916c' },
+          bark:    { 100:'#f1e6d8', 300:'#d9bd9c', 500:'#a9744f', 700:'#7a5238' },
+          cream:   '#f8faf6',
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'sans-serif'],
+        },
+        boxShadow: {
+          soft: '0 10px 40px -12px rgba(27,67,50,0.18)',
+          softer: '0 4px 20px -4px rgba(27,67,50,0.12)',
+          glow: '0 0 0 1px rgba(82,183,136,0.15), 0 20px 50px -15px rgba(27,67,50,0.35)',
+        },
+        borderRadius: { '4xl': '2rem', '5xl': '2.5rem' },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="styles.css">
+<base target="_blank">
+</head>
+<body class="bg-cream text-forest-900 dark:bg-forest-950 dark:text-cream antialiased">
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <svg class="preloader-leaf" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#52B788"/>
+    <path d="M32 8V58" stroke="#1B4332" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+  <nav class="glass mx-3 mt-3 rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between shadow-softer">
+    <a href="#home" class="flex items-center gap-2 shrink-0">
+      <svg width="34" height="34" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#52B788"/>
+        <path d="M32 8V58" stroke="#1B4332" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="font-display font-semibold text-lg sm:text-xl text-forest-800 dark:text-cream leading-tight">TreeKart</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-7 font-medium text-sm text-forest-700 dark:text-forest-100">
+      <a href="#home" class="nav-link hover:text-leaf-600 transition-colors">Home</a>
+      <a href="#collection" class="nav-link hover:text-leaf-600 transition-colors">Collection</a>
+      <a href="#categories" class="nav-link hover:text-leaf-600 transition-colors">Categories</a>
+      <a href="#about" class="nav-link hover:text-leaf-600 transition-colors">About</a>
+      <a href="#reviews" class="nav-link hover:text-leaf-600 transition-colors">Reviews</a>
+      <a href="#faq" class="nav-link hover:text-leaf-600 transition-colors">FAQ</a>
+      <a href="#contact" class="nav-link hover:text-leaf-600 transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="relative hidden md:block">
+        <input id="navSearch" type="text" placeholder="Search plants…" class="w-40 xl:w-56 bg-white/70 dark:bg-forest-900/60 border border-forest-100 dark:border-forest-700 rounded-full pl-9 pr-3 py-2 text-sm placeholder:text-forest-400" />
+        <svg class="absolute left-3 top-2.5 w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/></svg>
+      </div>
+      <button id="darkToggle" aria-label="Toggle dark mode" class="w-10 h-10 rounded-full bg-white/70 dark:bg-forest-900/60 border border-forest-100 dark:border-forest-700 flex items-center justify-center hover:scale-105 transition-transform">
+        <svg id="iconMoon" class="w-5 h-5 text-forest-700 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg id="iconSun" class="w-5 h-5 text-leaf-400 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+      </button>
+      <a href="#collection" class="hidden sm:inline-block btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all">View Collection</a>
+      <button id="menuBtn" aria-label="Open menu" title="Open menu" class="lg:hidden w-10 h-10 rounded-full bg-white/70 dark:bg-forest-900/60 border border-forest-100 dark:border-forest-700 flex items-center justify-center">
+        <svg class="w-5 h-5 text-forest-700 dark:text-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden lg:hidden glass mx-3 mt-2 rounded-2xl px-6 py-4 flex flex-col gap-3 text-sm font-medium text-forest-700 dark:text-forest-100 shadow-softer">
+    <a href="#home" class="mnav">Home</a>
+    <a href="#collection" class="mnav">Collection</a>
+    <a href="#categories" class="mnav">Categories</a>
+    <a href="#about" class="mnav">About</a>
+    <a href="#reviews" class="mnav">Reviews</a>
+    <a href="#faq" class="mnav">FAQ</a>
+    <a href="#contact" class="mnav">Contact</a>
+    <input id="mobileSearch" type="text" placeholder="Search plants…" class="w-full bg-white/70 dark:bg-forest-900/60 border border-forest-100 dark:border-forest-700 rounded-full px-4 py-2 text-sm" />
+  </div>
+</header>
+
+<main id="site">
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16">
+    <div class="absolute inset-0 -z-10">
+      <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1800&q=80" alt="Sunlit green nursery trees" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-b from-forest-950/80 via-forest-900/60 to-cream dark:to-forest-950"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-950/50 to-transparent"></div>
+    </div>
+
+    <div class="leaf-field">
+      <svg class="drift-leaf leaf-1" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#74C69D" opacity=".8"/></svg>
+      <svg class="drift-leaf leaf-2" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#F8FAF6" opacity=".7"/></svg>
+      <svg class="drift-leaf leaf-3" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#A9744F" opacity=".6"/></svg>
+      <svg class="drift-leaf leaf-4" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#52B788" opacity=".8"/></svg>
+      <svg class="drift-leaf leaf-5" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#F8FAF6" opacity=".65"/></svg>
+      <svg class="drift-leaf leaf-6" viewBox="0 0 64 64"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#74C69D" opacity=".75"/></svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full relative">
+      <div class="max-w-2xl">
+        <span class="reveal inline-flex items-center gap-2 glass text-cream text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6">
+          🌱 Trusted by 2,000+ happy gardens
+        </span>
+        <h1 class="reveal reveal-delay-1 font-display font-semibold text-5xl sm:text-6xl md:text-7xl leading-[1.05] text-white mb-6">
+          Bring Nature<br><span class="italic text-leaf-400">Home</span>
+        </h1>
+        <p class="reveal reveal-delay-2 text-lg sm:text-xl text-cream/85 max-w-xl mb-10 leading-relaxed">
+          Healthy Trees • Beautiful Flowers • Fresh Fruit Plants • Ornamental Plants — All at Affordable Prices.
+        </p>
+        <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
+          <a href="#collection" class="btn-primary text-white font-semibold px-8 py-4 rounded-full transition-all">View Collection</a>
+          <a href="#contact" class="glass text-white font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all">Contact Us</a>
+        </div>
+        <div class="reveal reveal-delay-4 flex items-center gap-8 mt-14 text-cream/90">
+          <div><p class="font-display text-3xl font-semibold">120+</p><p class="text-xs uppercase tracking-wider text-cream/60">Plant Varieties</p></div>
+          <div class="w-px h-10 bg-cream/20"></div>
+          <div><p class="font-display text-3xl font-semibold">3 yrs</p><p class="text-xs uppercase tracking-wider text-cream/60">Business Running</p></div>
+          <div class="w-px h-10 bg-cream/20"></div>
+          <div><p class="font-display text-3xl font-semibold">4.9★</p><p class="text-xs uppercase tracking-wider text-cream/60">Customer Rating</p></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#categories" class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-cream/80 text-xs animate-bounce">
+      <span>Scroll</span>
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </a>
+  </section>
+
+  <svg class="vein-divider text-cream dark:text-forest-950" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C 240 60 480 0 720 20 C 960 40 1200 10 1440 30 L1440 60 L0 60 Z"/></svg>
+
+  <!-- ============ CATEGORIES ============ -->
+  <section id="categories" class="py-20 sm:py-28 bg-cream dark:bg-forest-950">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="text-bark-500 dark:text-bark-300 font-semibold tracking-wide text-sm uppercase">Explore by kind</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-4 text-forest-900 dark:text-cream">Shop by Category</h2>
+        <p class="text-forest-600 dark:text-forest-200">From fruit-bearing giants to gentle indoor companions — find exactly what your space needs.</p>
+      </div>
+      <div id="categoryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ============ COLLECTION ============ -->
+  <section id="collection" class="py-20 sm:py-28 bg-forest-50/70 dark:bg-forest-900/30">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
+        <span class="text-bark-500 dark:text-bark-300 font-semibold tracking-wide text-sm uppercase">The Nursery</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-4 text-forest-900 dark:text-cream">Our Tree Collection</h2>
+        <p class="text-forest-600 dark:text-forest-200">Every plant is nursed with care before it reaches your doorstep.</p>
+      </div>
+
+      <div class="reveal flex flex-col md:flex-row gap-4 md:items-center md:justify-between mb-10">
+        <div class="relative w-full md:w-80">
+          <input id="collectionSearch" type="text" placeholder="Search by name…" class="w-full bg-white dark:bg-forest-900 border border-forest-100 dark:border-forest-700 rounded-full pl-11 pr-4 py-3 text-sm shadow-softer" />
+          <svg class="absolute left-4 top-3.5 w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/></svg>
+        </div>
+        <div id="filterChips" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+      <p id="noResults" class="hidden text-center text-forest-500 dark:text-forest-300 py-16">🌿 No plants match your search. Try a different term or category.</p>
+    </div>
+  </section>
+
+  <svg class="vein-divider text-forest-800 dark:text-forest-900" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C 240 0 480 60 720 40 C 960 20 1200 50 1440 30 L1440 60 L0 60 Z"/></svg>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="py-20 sm:py-28 bg-forest-800 dark:bg-forest-900 text-cream relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal relative">
+        <div class="rounded-4xl overflow-hidden shadow-glow img-zoom">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=80" loading="lazy" alt="Nursery worker tending healthy young plants" class="w-full h-[420px] object-cover" />
+        </div>
+        <div class="absolute -bottom-8 -right-6 sm:-right-10 glass rounded-3xl px-6 py-5 shadow-glow max-w-[220px]">
+          <p class="font-display text-3xl font-semibold text-white">15+</p>
+          <p class="text-xs text-cream/80">Years nurturing healthy roots, one sapling at a time</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="text-leaf-400 font-semibold tracking-wide text-sm uppercase">About Us</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-6 leading-tight">Grown with patience. Delivered with pride.</h2>
+        <p class="text-cream/80 leading-relaxed mb-6">
+          At TreeKart, every sapling is raised in nutrient-rich soil, watched over daily, and only sent home once it's strong enough to thrive. We believe quality greenery shouldn't come with a premium price tag — so we keep our plants healthy, our prices honest, and our advice free.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="flex gap-3 items-start"><div class="w-10 h-10 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">🌱</div><div><p class="font-semibold">Healthy Stock</p><p class="text-sm text-cream/70">Hand-inspected before every sale.</p></div></div>
+          <div class="flex gap-3 items-start"><div class="w-10 h-10 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">💧</div><div><p class="font-semibold">Care Guidance</p><p class="text-sm text-cream/70">Watering & sunlight tips included.</p></div></div>
+          <div class="flex gap-3 items-start"><div class="w-10 h-10 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">🚚</div><div><p class="font-semibold">Safe Delivery</p><p class="text-sm text-cream/70">Packed to arrive root-strong.</p></div></div>
+          <div class="flex gap-3 items-start"><div class="w-10 h-10 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">💰</div><div><p class="font-semibold">Fair Pricing</p><p class="text-sm text-cream/70">Nursery-direct, no middlemen.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="py-20 sm:py-28 bg-cream dark:bg-forest-950">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="text-bark-500 dark:text-bark-300 font-semibold tracking-wide text-sm uppercase">Customer Love</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-4 text-forest-900 dark:text-cream">What Our Customers Say</h2>
+      </div>
+      <div id="reviewGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-20 sm:py-28 bg-forest-50/70 dark:bg-forest-900/30">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-bark-500 dark:text-bark-300 font-semibold tracking-wide text-sm uppercase">Good to Know</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-4 text-forest-900 dark:text-cream">Frequently Asked Questions</h2>
+      </div>
+      <div id="faqList" class="space-y-4"></div>
+    </div>
+  </section>
+
+  <svg class="vein-divider text-forest-800 dark:text-forest-900" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C 240 60 480 0 720 20 C 960 40 1200 10 1440 30 L1440 60 L0 60 Z"/></svg>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="py-20 sm:py-28 bg-forest-800 dark:bg-forest-900 text-cream">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="text-leaf-400 font-semibold tracking-wide text-sm uppercase">Get In Touch</span>
+        <h2 class="font-display font-semibold text-4xl sm:text-5xl mt-3 mb-4">Let's Grow Something Together</h2>
+        <p class="text-cream/75">Have a question, bulk order, or landscaping project in mind? We'd love to help.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8">
+        <div class="lg:col-span-2 space-y-5 reveal">
+          <div class="glass-dark rounded-3xl p-6 flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">📞</div>
+            <div><p class="font-semibold">Call Us</p><a href="tel:+919999999999" class="text-cream/75 text-sm hover:text-leaf-400 transition-colors">+91 99999 99999</a></div>
+          </div>
+          <div class="glass-dark rounded-3xl p-6 flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">✉️</div>
+            <div><p class="font-semibold">Email Us</p><a href="mailto:hello@friendstreenursery.example" class="text-cream/75 text-sm hover:text-leaf-400 transition-colors">hello@friendstreenursery.example</a></div>
+          </div>
+          <div class="glass-dark rounded-3xl p-6 flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-leaf-500/20 flex items-center justify-center shrink-0">📍</div>
+            <div><p class="font-semibold">Visit the Nursery</p><p class="text-cream/75 text-sm">[Nursery Address Placeholder], [City], [State] – [PIN]</p></div>
+          </div>
+          <a href="https://wa.me/919999999999?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20plants." target="_blank" rel="noopener" class="flex items-center justify-center gap-3 bg-[#25D366] hover:brightness-110 transition-all text-white font-semibold rounded-3xl p-5">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.63-1.28 1.2-1.77 1.27-.45.07-1.02.1-1.65-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.3.68-1.94.93-2.2.24-.27.52-.33.7-.33h.5c.16 0 .38-.06.58.44.22.55.75 1.9.82 2.04.07.13.11.3.02.48-.09.18-.13.29-.27.45-.13.15-.28.34-.4.46-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.16 1.34.27.13.42.11.58-.06.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.87.27.13.45.2.51.31.07.13.07.71-.15 1.34Z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <div class="lg:col-span-3 reveal reveal-delay-1">
+          <form id="contactForm" class="glass-dark rounded-4xl p-7 sm:p-8 space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label for="contactName" class="sr-only">Your Name</label>
+              <input id="contactName" required type="text" placeholder="Your Name" class="w-full bg-white/10 border border-white/15 rounded-2xl px-4 py-3 text-sm placeholder:text-cream/50" />
+              <label for="contactPhone" class="sr-only">Phone Number</label>
+              <input id="contactPhone" required type="tel" placeholder="Phone Number" class="w-full bg-white/10 border border-white/15 rounded-2xl px-4 py-3 text-sm placeholder:text-cream/50" />
+            </div>
+            <label for="contactEmail" class="sr-only">Email Address</label>
+            <input id="contactEmail" required type="email" placeholder="Email Address" class="w-full bg-white/10 border border-white/15 rounded-2xl px-4 py-3 text-sm placeholder:text-cream/50" />
+            <label for="contactMessage" class="sr-only">Message</label>
+            <textarea id="contactMessage" required rows="4" placeholder="Tell us what you're looking for…" class="w-full bg-white/10 border border-white/15 rounded-2xl px-4 py-3 text-sm placeholder:text-cream/50"></textarea>
+            <button type="submit" class="btn-primary text-white font-semibold px-8 py-3.5 rounded-full transition-all w-full sm:w-auto">Send Message</button>
+          </form>
+          <div class="mt-6 rounded-4xl overflow-hidden border border-white/10 h-64 relative">
+            <div class="w-full h-full bg-forest-700/60 flex flex-col items-center justify-center gap-2 text-cream/60">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21c-4.5-4.5-7-8-7-11a7 7 0 1 1 14 0c0 3-2.5 6.5-7 11Z"/><circle cx="12" cy="10" r="2.5" stroke-width="1.5"/></svg>
+              <p class="text-sm">Google Maps embed placeholder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-forest-950 text-cream/80 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <div>
+        <a href="#home" class="flex items-center gap-2 mb-4">
+          <svg width="30" height="30" viewBox="0 0 64 64" fill="none"><path d="M32 4C14 10 6 26 10 44c2 9 10 16 22 16 14 0 22-12 22-28C54 18 44 8 32 4Z" fill="#52B788"/><path d="M32 8V58" stroke="#F8FAF6" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="font-display font-semibold text-lg text-cream">TreeKart</span>
+        </a>
+        <p class="text-sm text-cream/60 leading-relaxed">Healthy trees, flowering plants, fruit trees, and ornamental plants — grown with care, priced fairly.</p>
+        <div class="flex gap-3 mt-5">
+          <a href="https://instagram.com/treekart" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-leaf-500 transition-colors flex items-center justify-center"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.05.05 1.77.22 2.4.46.65.25 1.2.6 1.75 1.15.5.5.9 1.1 1.15 1.75.24.63.41 1.35.46 2.4C21.99 8.94 22 9.3 22 12s-.01 3.06-.06 4.12c-.05 1.05-.22 1.77-.46 2.4-.25.65-.6 1.2-1.15 1.75-.5.5-1.1.9-1.75 1.15-.63.24-1.35.41-2.4.46C15.06 21.99 14.7 22 12 22s-3.06-.01-4.12-.06c-1.05-.05-1.77-.22-2.4-.46-.65-.25-1.2-.6-1.75-1.15-.5-.5-.9-1.1-1.15-1.75-.24-.63-.41-1.35-.46-2.4C2.01 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.05.22-1.77.46-2.4.25-.65.6-1.2 1.15-1.75.5-.5 1.1-.9 1.75-1.15.63-.24 1.35-.41 2.4-.46C8.94 2.01 9.3 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg></a>
+          <a href="https://facebook.com/treekart" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 hover:bg-leaf-500 transition-colors flex items-center justify-center"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 22v-8.5H16l.4-3.2h-2.9V8.2c0-.93.26-1.56 1.6-1.56H16.5V3.8C16.1 3.75 14.9 3.65 13.5 3.65c-2.9 0-4.9 1.77-4.9 5v2.65H5.9v3.2h2.7V22h4.9Z"/></svg></a>
+          <a href="https://youtube.com/@treekart" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/10 hover:bg-leaf-500 transition-colors flex items-center justify-center"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M21.6 7.2s-.2-1.5-.83-2.15c-.8-.83-1.68-.84-2.1-.89C15.6 4 12 4 12 4h-.02s-3.6 0-6.67.16c-.42.05-1.3.06-2.1.9C2.6 5.7 2.4 7.2 2.4 7.2S2.2 8.95 2.2 10.7v1.6c0 1.75.2 3.5.2 3.5s.2 1.5.83 2.15c.8.84 1.85.81 2.32.9 1.68.16 7.15.2 7.15.2s3.6-.01 6.68-.17c.42-.05 1.3-.06 2.1-.9.63-.65.83-2.15.83-2.15s.2-1.75.2-3.5v-1.6c0-1.75-.2-3.5-.2-3.5ZM9.9 14.6V8.9l5.4 2.86-5.4 2.85Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-cream mb-4">Quick Links</p>
+        <ul class="space-y-2 text-sm text-cream/60">
+          <li><a href="#home" class="hover:text-leaf-400 transition-colors">Home</a></li>
+          <li><a href="#collection" class="hover:text-leaf-400 transition-colors">Collection</a></li>
+          <li><a href="#about" class="hover:text-leaf-400 transition-colors">About Us</a></li>
+          <li><a href="#reviews" class="hover:text-leaf-400 transition-colors">Reviews</a></li>
+          <li><a href="#faq" class="hover:text-leaf-400 transition-colors">FAQ</a></li>
+          <li><a href="#admin" class="hover:text-leaf-400 transition-colors">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold text-cream mb-4">Categories</p>
+        <ul id="footerCategories" class="space-y-2 text-sm text-cream/60"></ul>
+      </div>
+      <div>
+        <p class="font-semibold text-cream mb-4">Contact</p>
+        <ul class="space-y-2 text-sm text-cream/60">
+          <li><a href="tel:+919999999999" class="hover:text-leaf-400 transition-colors">+91 99999 99999</a></li>
+          <li><a href="mailto:hello@friendstreenursery.example" class="hover:text-leaf-400 transition-colors">hello@friendstreenursery.example</a></li>
+          <li>[Nursery Address Placeholder]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/50">
+      <p>© <span id="year"></span> TreeKart. All rights reserved.</p>
+      <p class="text-center sm:text-right">
+        Website designed &amp; developed by <span class="text-cream/70">Soumik Paul</span> ·
+        <a href="mailto:paulsoumik07@gmail.com" class="hover:text-leaf-400 transition-colors">paulsoumik07@gmail.com</a> ·
+        <a href="tel:8902737504" class="hover:text-leaf-400 transition-colors">8902737504</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/919999999999?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20plants." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] shadow-glow flex items-center justify-center hover:scale-110 transition-transform">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.63-1.28 1.2-1.77 1.27-.45.07-1.02.1-1.65-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.3.68-1.94.93-2.2.24-.27.52-.33.7-.33h.5c.16 0 .38-.06.58.44.22.55.75 1.9.82 2.04.07.13.11.3.02.48-.09.18-.13.29-.27.45-.13.15-.28.34-.4.46-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.16 1.34.27.13.42.11.58-.06.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.87.27.13.45.2.51.31.07.13.07.71-.15 1.34Z"/></svg>
+</a>
+
+<!-- ============ SCROLL TO TOP (leaf progress) ============ -->
+<button id="scrollTopBtn" aria-label="Scroll to top" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full glass shadow-glow flex items-center justify-center">
+  <svg class="w-14 h-14 absolute -rotate-90" viewBox="0 0 56 56">
+    <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(45,106,79,0.15)" stroke-width="4"/>
+    <circle id="progressRing" cx="28" cy="28" r="24" fill="none" stroke="#52B788" stroke-width="4" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="150.8"/>
+  </svg>
+  <svg class="w-5 h-5 text-forest-700 dark:text-leaf-400 relative" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-forest-800 text-cream px-6 py-3 rounded-full shadow-glow text-sm font-medium"></div>
+
+<!-- ============ ENQUIRY MODAL ============ -->
+<div id="enquiryModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+  <div id="enquiryOverlay" class="absolute inset-0 bg-forest-950/70 backdrop-blur-sm"></div>
+  <div class="relative glass dark:glass-dark rounded-4xl p-7 sm:p-8 max-w-md w-full shadow-glow">
+    <button id="enquiryClose" aria-label="Close enquiry modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-forest-900/10 dark:bg-white/10 flex items-center justify-center">✕</button>
+    <h3 class="font-display font-semibold text-2xl mb-1 text-forest-900 dark:text-cream">Enquire Now</h3>
+    <p id="enquiryProduct" class="text-sm text-forest-500 dark:text-forest-300 mb-5"></p>
+    <div class="grid gap-3">
+      <a id="enquiryWhatsapp" href="#" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#25D366] hover:brightness-110 transition-all text-white font-semibold rounded-full py-3">Enquire on WhatsApp</a>
+      <a id="enquiryCall" href="#" class="flex items-center justify-center gap-2 border border-forest-200 dark:border-forest-700 text-forest-700 dark:text-cream font-semibold rounded-full py-3 hover:bg-forest-100 dark:hover:bg-forest-800 transition-colors">Call Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN ============ -->
+<section id="admin" class="hidden min-h-screen bg-forest-50 dark:bg-forest-950 pt-28 pb-16">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <!-- Login -->
+    <div id="adminLogin" class="max-w-md mx-auto glass dark:glass-dark rounded-4xl p-8 shadow-soft mt-10">
+      <h2 class="font-display font-semibold text-3xl mb-2 text-forest-900 dark:text-cream">Admin Login</h2>
+      <p class="text-sm text-forest-500 dark:text-forest-300 mb-6">Demo login — connect Firebase Authentication for production use.</p>
+      <form id="adminLoginForm" class="space-y-4">
+        <label for="adminUser" class="sr-only">Username</label>
+        <input required type="text" id="adminUser" placeholder="Username" class="w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-3 text-sm" />
+        <label for="adminPass" class="sr-only">Password</label>
+        <input required type="password" id="adminPass" placeholder="Password" class="w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-3 text-sm" />
+        <button type="submit" class="btn-primary text-white font-semibold w-full py-3 rounded-full">Log In</button>
+        <p class="text-xs text-forest-400 text-center">Use demo credentials or connect Firebase Auth for production.</p>
+      </form>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="adminDashboard" class="hidden">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 class="font-display font-semibold text-3xl text-forest-900 dark:text-cream">Admin Dashboard</h2>
+          <p class="text-sm text-forest-500 dark:text-forest-300">Manage your live product catalog.</p>
+        </div>
+        <div class="flex gap-3">
+          <button id="openAddProduct" class="btn-primary text-white font-semibold px-5 py-2.5 rounded-full text-sm">+ Add Tree</button>
+          <button id="adminLogout" class="border border-forest-200 dark:border-forest-700 text-forest-700 dark:text-cream font-semibold px-5 py-2.5 rounded-full text-sm">Log Out</button>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5 mb-8">
+        <div class="glass dark:glass-dark rounded-3xl p-5"><p class="text-xs text-forest-500 dark:text-forest-300 uppercase tracking-wide mb-1">Total Products</p><p id="statTotal" class="font-display text-3xl font-semibold text-forest-900 dark:text-cream">0</p></div>
+        <div class="glass dark:glass-dark rounded-3xl p-5"><p class="text-xs text-forest-500 dark:text-forest-300 uppercase tracking-wide mb-1">In Stock</p><p id="statInStock" class="font-display text-3xl font-semibold text-leaf-600">0</p></div>
+        <div class="glass dark:glass-dark rounded-3xl p-5"><p class="text-xs text-forest-500 dark:text-forest-300 uppercase tracking-wide mb-1">Sold Out</p><p id="statOut" class="font-display text-3xl font-semibold text-bark-500">0</p></div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <label for="adminSearch" class="sr-only">Search products</label>
+        <input id="adminSearch" type="text" placeholder="Search products…" class="flex-1 bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-full px-4 py-2.5 text-sm" />
+        <label for="adminCategoryFilter" class="sr-only">Filter by category</label>
+        <select id="adminCategoryFilter" aria-label="Filter by category" class="bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-full px-4 py-2.5 text-sm"></select>
+      </div>
+
+      <div class="overflow-x-auto rounded-3xl border border-forest-100 dark:border-forest-800">
+        <table class="w-full text-sm">
+          <thead class="bg-forest-100/60 dark:bg-forest-800/60 text-forest-700 dark:text-cream text-left">
+            <tr>
+              <th class="px-4 py-3">Image</th>
+              <th class="px-4 py-3">Name</th>
+              <th class="px-4 py-3">Category</th>
+              <th class="px-4 py-3">Price</th>
+              <th class="px-4 py-3">Status</th>
+              <th class="px-4 py-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody" class="divide-y divide-forest-100 dark:divide-forest-800 bg-white dark:bg-forest-900/40"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT FORM MODAL (admin) ============ -->
+<div id="productModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 overflow-y-auto">
+  <div id="productOverlay" class="absolute inset-0 bg-forest-950/70 backdrop-blur-sm"></div>
+  <div class="relative glass dark:glass-dark rounded-4xl p-7 sm:p-8 max-w-lg w-full shadow-glow my-8">
+    <button id="productModalClose" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-forest-900/10 dark:bg-white/10 flex items-center justify-center">✕</button>
+    <h3 id="productModalTitle" class="font-display font-semibold text-2xl mb-6 text-forest-900 dark:text-cream">Add New Tree</h3>
+    <form id="productForm" class="space-y-4">
+      <input type="hidden" id="pId" />
+      <div>
+        <label class="text-xs font-semibold text-forest-500 dark:text-forest-300 uppercase">Image URL</label>
+        <input required id="pImage" type="text" placeholder="https://…" class="mt-1 w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-2.5 text-sm" />
+        <p class="text-[11px] text-forest-400 mt-1">Production tip: swap this for a Firebase Storage upload button.</p>
+      </div>
+      <div>
+        <label for="pName" class="text-xs font-semibold text-forest-500 dark:text-forest-300 uppercase">Tree Name</label>
+        <input required id="pName" type="text" placeholder="e.g. Mango Sapling" class="mt-1 w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-2.5 text-sm" />
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="pPrice" class="text-xs font-semibold text-forest-500 dark:text-forest-300 uppercase">Price (₹)</label>
+          <input required id="pPrice" type="number" min="0" placeholder="499" class="mt-1 w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label for="pCategory" class="text-xs font-semibold text-forest-500 dark:text-forest-300 uppercase">Category</label>
+          <select id="pCategory" aria-label="Select category" class="mt-1 w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-2.5 text-sm"></select>
+        </div>
+      </div>
+      <div>
+        <label for="pDesc" class="text-xs font-semibold text-forest-500 dark:text-forest-300 uppercase">Description</label>
+        <textarea required id="pDesc" rows="3" placeholder="Add plant details, care notes, and highlights" class="mt-1 w-full bg-white dark:bg-forest-900 border border-forest-200 dark:border-forest-700 rounded-2xl px-4 py-2.5 text-sm"></textarea>
+      </div>
+      <label class="flex items-center gap-2 text-sm text-forest-700 dark:text-cream">
+        <input id="pStock" type="checkbox" checked class="w-4 h-4 rounded accent-leaf-500" /> In Stock
+      </label>
+      <button type="submit" class="btn-primary text-white font-semibold w-full py-3 rounded-full">Save Tree</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

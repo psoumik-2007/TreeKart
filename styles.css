@@ -1,0 +1,74 @@
+:root{ --vein-color: rgba(45,106,79,0.12); }
+html{ scroll-behavior:smooth; }
+html.dark{ color-scheme: dark; }
+body{ font-family:'Plus Jakarta Sans', sans-serif; background:#f8faf6; }
+html.dark body{ background:#0a1c15; }
+h1,h2,h3,h4,.font-display{ font-family:'Fraunces', serif; }
+
+/* ---------- Preloader ---------- */
+#preloader{ position:fixed; inset:0; z-index:9999; background:#0a1c15; display:flex; align-items:center; justify-content:center; transition:opacity .6s ease, visibility .6s ease; }
+#preloader.hide{ opacity:0; visibility:hidden; }
+.preloader-leaf{ width:56px; height:56px; animation:sway-grow 1.4s ease-in-out infinite; }
+@keyframes sway-grow{ 0%,100%{ transform:scale(0.85) rotate(-6deg);} 50%{ transform:scale(1.05) rotate(6deg);} }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+.reveal-delay-1{ transition-delay:.08s;} .reveal-delay-2{ transition-delay:.16s;} .reveal-delay-3{ transition-delay:.24s;} .reveal-delay-4{ transition-delay:.32s;}
+
+/* ---------- Glassmorphism ---------- */
+.glass{ background:rgba(255,255,255,0.65); -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%); border:1px solid rgba(255,255,255,0.5); }
+html.dark .glass{ background:rgba(18,48,36,0.55); border:1px solid rgba(255,255,255,0.08); }
+.glass-dark{ background:rgba(10,28,21,0.55); -webkit-backdrop-filter:blur(18px) saturate(160%); backdrop-filter:blur(18px) saturate(160%); border:1px solid rgba(255,255,255,0.12); }
+
+/* ---------- Floating leaves (hero signature element) ---------- */
+.leaf-field{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.drift-leaf{ position:absolute; top:-10%; opacity:.85; will-change:transform; animation-name:driftFall; animation-timing-function:linear; animation-iteration-count:infinite; }
+.drift-leaf.leaf-1{ left:8%; width:26px; animation-duration:11s; animation-delay:0s; }
+.drift-leaf.leaf-2{ left:22%; width:18px; animation-duration:14s; animation-delay:2s; }
+.drift-leaf.leaf-3{ left:38%; width:22px; animation-duration:9s; animation-delay:1s; }
+.drift-leaf.leaf-4{ left:55%; width:20px; animation-duration:13s; animation-delay:3.5s; }
+.drift-leaf.leaf-5{ left:70%; width:16px; animation-duration:10s; animation-delay:0.8s; }
+.drift-leaf.leaf-6{ left:85%; width:24px; animation-duration:12s; animation-delay:2.6s; }
+@keyframes driftFall{
+  0%{ transform:translate(0,-10vh) rotate(0deg); }
+  25%{ transform:translate(3vw,25vh) rotate(90deg); }
+  50%{ transform:translate(-2vw,55vh) rotate(180deg); }
+  75%{ transform:translate(4vw,85vh) rotate(270deg); }
+  100%{ transform:translate(0,115vh) rotate(360deg); }
+}
+
+/* ---------- Vein divider ---------- */
+.vein-divider{ width:100%; height:60px; display:block; }
+
+/* ---------- Cards ---------- */
+.grow-card{ position:relative; transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease; }
+.grow-card:hover{ transform:translateY(-8px); }
+.grow-card::before{ content:''; position:absolute; inset:-1.5px; border-radius:inherit; padding:1.5px; background:linear-gradient(135deg, transparent, transparent);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:opacity .45s ease, background .45s ease; }
+.grow-card:hover::before{ opacity:1; background:linear-gradient(135deg, #52b788, #a9744f); }
+.img-zoom{ overflow:hidden; }
+.img-zoom img{ transition:transform .6s cubic-bezier(.2,.8,.2,1); }
+.img-zoom:hover img{ transform:scale(1.08); }
+
+/* ---------- Buttons ---------- */
+.btn-primary{ background:linear-gradient(135deg,#2d6a4f,#40916c); box-shadow:0 12px 30px -10px rgba(45,106,79,.55); }
+.btn-primary:hover{ box-shadow:0 16px 40px -8px rgba(45,106,79,.65); transform:translateY(-2px); }
+
+/* ---------- Scroll progress leaf button ---------- */
+#scrollTopBtn{ opacity:0; pointer-events:none; transition:opacity .35s ease, transform .35s ease; }
+#scrollTopBtn.show{ opacity:1; pointer-events:auto; }
+
+/* ---------- Misc ---------- */
+.chip{ transition:all .25s ease; }
+.chip.active{ background:#2d6a4f; color:#fff; box-shadow:0 8px 20px -6px rgba(45,106,79,.55);}
+::selection{ background:#52b788; color:#0a1c15; }
+.fade-mask{ -webkit-mask-image:linear-gradient(to bottom, black 85%, transparent 100%); mask-image:linear-gradient(to bottom, black 85%, transparent 100%); }
+input[type=text], input[type=email], input[type=tel], input[type=number], textarea, select{ transition:box-shadow .2s ease, border-color .2s ease; }
+input:focus, textarea:focus, select:focus{ outline:none; box-shadow:0 0 0 4px rgba(82,183,136,.25); border-color:#52b788; }
+.toast{ transform:translateY(120%); transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+.toast.show{ transform:translateY(0); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{ outline:3px solid #52b788; outline-offset:2px; }
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
